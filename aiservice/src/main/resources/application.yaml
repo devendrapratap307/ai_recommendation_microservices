@@ -5,6 +5,21 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/activityfitness
       database: recommendations
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: activity-processor-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: com.fitness.aiservice.model.Activity
+        spring.json.trusted.packages: "*"
+
+kafka:
+  topic:
+    name: activity-events
 
 eureka:
   client:
@@ -13,3 +28,8 @@ eureka:
 
 server:
   port: 8097
+
+gemini:
+  api:
+    url: ${GEMINI_URL}
+    key: ${GEMINI_KEY}
