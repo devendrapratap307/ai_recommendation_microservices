@@ -67,8 +67,8 @@ This asynchronous flow ensures:
 - Spring Data MongoDB
 
 ### Databases
-- PostgreSQL (User & Activity data)
-- MongoDB (AI Recommendations)
+- PostgreSQL (User data)
+- MongoDB (Activity data & AI Recommendations)
 
 ### Messaging
 - Apache Kafka
