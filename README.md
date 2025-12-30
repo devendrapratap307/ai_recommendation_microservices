@@ -165,10 +165,8 @@ AI_Microservices/
 ---
 
 ## 🧠 Future Enhancements
-
-- API Gateway integration
 - Authentication & Authorization (Keycloak / OAuth2)
-- Docker & Kubernetes deployment
+- Kubernetes deployment
 - Monitoring with Prometheus & Grafana
 - Retry & DLQ support for Kafka
 
