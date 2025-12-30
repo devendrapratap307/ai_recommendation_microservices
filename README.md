@@ -174,15 +174,46 @@ AI_Microservices/
 
 ---
 
+## 🐳 Docker & Containerization
+
+The application is **Docker-ready** and can be containerized to ensure consistent environments across development, testing, and production.
+
+### 🔹 Docker Usage
+- Each microservice is packaged as an independent **Docker image**
+- Enables isolated, reproducible runtime environments
+- Simplifies local setup and cloud deployment
+
+### 🔹 Docker Compose (Recommended for Local Setup)
+Docker Compose can be used to run the complete ecosystem including:
+- Microservices
+- Kafka & Zookeeper
+- PostgreSQL
+- MongoDB
+
+**Benefits:**
+- One-command startup for the entire system
+- Easy service orchestration
+- Ideal for local development and testing
+
+### 🔹 Production Readiness
+- Services can be deployed to **Kubernetes / Cloud VMs** using Docker images
+- Supports horizontal scaling and rolling updates
+- Clean separation between application and infrastructure
+
+---
+
 ## 📌 How to Run (High Level)
 
-1. Start Kafka & Zookeeper with Docker
-2. Start PostgreSQL & MongoDB
-3. Run services in order:
+1. Start infrastructure services (Kafka, PostgreSQL, MongoDB)
+2. Start Config Server
+3. Start Eureka Server
+4. Start API Gateway
+5. Start application services:
     - user-service
     - activity-service
     - ai-recommendation-service
-4. Trigger user activity APIs
+6. Trigger user activity APIs via Gateway
+
 
 ---
 
