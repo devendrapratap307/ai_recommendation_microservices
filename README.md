@@ -103,6 +103,46 @@ AI_Microservices/
 
 ---
 
+## ⚙️ Centralized Configuration & Service Discovery
+
+### 🔧 Centralized Configuration (Spring Cloud Config)
+- A **central configuration server** is used to manage all application configurations in YAML format
+- Each microservice fetches its configuration at startup from the Config Server
+- Configuration changes can be managed centrally without redeploying services
+
+**Benefits:**
+- Single source of truth for configurations
+- Environment-specific configs (dev, test, prod)
+- Reduced duplication across services
+
+---
+
+### 🔍 Service Discovery (Eureka Server)
+- **Eureka Server** is used for service registration and discovery
+- Each microservice registers itself with Eureka on startup
+- Services communicate using **service names** instead of hardcoded IPs or ports
+
+**Benefits:**
+- Dynamic service discovery
+- Better scalability and fault tolerance
+- Simplifies service-to-service communication
+
+---
+
+### 🌐 API Gateway (Spring Cloud Gateway)
+- A centralized **API Gateway** is used as the single entry point for all client requests
+- Routes incoming requests to appropriate microservices based on path predicates
+- Handles cross-cutting concerns such as:
+    - Routing
+    - Request filtering
+    - Authentication & authorization (future-ready)
+    - Rate limiting and logging
+
+**Benefits:**
+- Improves security by hiding internal services
+- Centralized routing and filtering logic
+- Simplifies client-side communication
+
 ## ✅ Key Features
 
 - Microservices-based architecture
@@ -136,7 +176,7 @@ AI_Microservices/
 
 ## 📌 How to Run (High Level)
 
-1. Start Kafka & Zookeeper
+1. Start Kafka & Zookeeper with Docker
 2. Start PostgreSQL & MongoDB
 3. Run services in order:
     - user-service
